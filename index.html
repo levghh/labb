@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>визитка</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #070709;           
+            --card-bg: #111116;          
+            --border-color: #22222c;    
+            --text-main: #f4f4f6;        
+            --text-muted: #9494a0;       
+            --accent-berry: #7837da;     
+            --accent-berry-glow: rgba(217, 70, 239, 0.25); 
+            --accent-purple: #4f30b4;    
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background-image: radial-gradient(circle at 85% 15%, rgba(124, 58, 237, 0.08) 0%, transparent 45%);
+        }
+
+        .hero-section {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 48px;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-content {
+            flex: 1.2;
+        }
+        .hero-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-title span {
+            color: var(--accent-berry);
+            position: relative;
+        }
+
+        .hero-subtitle {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+                .hero-description {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 28px;
+            max-width: 440px;
+        }
+
+                .hero-buttons {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--accent-berry);
+            color: #ffffff;
+            padding: 12px 22px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px var(--accent-berry-glow);
+            transition: all 0.25s ease;
+        }
+
+        .btn-primary::before {
+            content: '';
+            width: 18px;
+            height: 18px;
+            background-image: url('https://api.iconify.design/ph:cat-bold.svg?color=%23ffffff');
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(134, 53, 200, 0.4);
+            background-color: #582eb1;
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.02);
+            color: var(--text-main);
+            padding: 12px 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            transition: all 0.25s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-berry);
+            color: var(--accent-berry);
+            background-color: rgba(217, 70, 239, 0.05);
+        }
+
+        .hero-image {
+            flex: 0.9;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            background: linear-gradient(135deg, var(--accent-berry), var(--accent-purple));
+            border-radius: 22px;
+            filter: blur(14px);
+            opacity: 0.45;
+            z-index: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .hero-image img {
+            position: relative;
+            z-index: 1;
+            width: 250px;
+            height: 310px;
+            object-fit: cover;
+            border-radius: 18px;
+            border: 2px solid var(--accent-berry);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.02);
+        }
+
+        .hero-image:hover::before {
+            opacity: 0.65;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 868px) {
+            .hero-container {
+                flex-direction: column-reverse;
+                padding: 32px 20px;
+                gap: 32px;
+                text-align: center;
+            }
+            .hero-subtitle {
+                justify-content: center;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            .hero-description {
+                margin: 0 auto 24px;
+            }
+            .hero-image img {
+                width: 220px;
+                height: 270px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero-section">
+        <div class="hero-container">
+            
+            <!-- Текстовый блок -->
+            <div class="hero-content">
+                <h1 class="hero-title">Привет! Я Елизавета — <span>вайб-разработчик</span></h1>
+                
+                <h2 class="hero-subtitle">
+                    <span class="cat-icon" title="Мяу!"></span>
+                    Создаю современные интерактивные веб-приложения
+                </h2>
+
+                <p class="hero-description">
+                    Специализируюсь на разработке чистых, адаптивных интерфейсов и продуманной логике. Воплощаю идеи в качественный цифровой продукт с акцентом на удобство пользователя.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-primary">Связаться со мной</a>
+                    <a href="#about" class="btn-secondary">Обо мне ↓</a>
+                </div>
+            </div>
+
+            
+            <div class="hero-image">
+                <img src="photo_2026-10-30_14-39-02.jpg" alt="мое фото" width="380" height="380">
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>
